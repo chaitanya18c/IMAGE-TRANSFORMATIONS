@@ -44,6 +44,8 @@ Use array slicing to extract the cropped region from the input image.Display the
 ```python
 Developed By: CHAITANYA P S
 Register Number: 212222230024
+```
+```pyhton
 i)Image Translation
 import numpy as np
 import cv2
@@ -55,57 +57,52 @@ plt.imshow(input_image)
 plt.show()
 rows,cols,dim=input_image.shape
 M = np.float32([[1, 0, 70],[0, 1, 100],[0, 0, 1]])
-
 translated_image = cv2.warpPerspective(input_image, M, (cols, rows))
 plt.axis('off')
 plt.imshow(translated_image)
 plt.show()
-
+```
+```python
 ii) Image Scaling
 rows, cols, dim = input_image.shape 
 M = np.float32([[1.5, 0, 0],[0, 1.8, 0],[0, 0, 1]])
-
 scaled_img=cv2.warpPerspective (input_image, M, (cols*2, rows*2))
 plt.imshow(scaled_img)
 plt.show()
-
+```
+```pyhton
 iii)Image shearing
 M_x = np.float32([[1, 0.5, 0],[0, 1 ,0],[0,0,1]])
 M_y =np.float32([[1, 0, 0],[0.5, 1, 0],[0, 0, 1]])
-
 sheared_img_xaxis=cv2.warpPerspective(input_image,M_x, (int(cols*1.5), int(rows *1.5)))
 sheared_img_yaxis = cv2.warpPerspective(input_image,M_y,(int(cols*1.5), int(rows*1.5)))
-
 plt.imshow(sheared_img_xaxis)
 plt.show()
-
 plt.imshow(sheared_img_yaxis)
 plt.show()
-
+```
+```pyhton
 iv)Image Reflection
 M_x= np.float32([[1,0, 0],[0, -1, rows],[0, 0, 1]])
 M_y =np.float32([[-1, 0, cols],[ 0, 1, 0 ],[ 0, 0, 1 ]])
-
 reflected_img_xaxis=cv2.warpPerspective (input_image, M_x,(int(cols), int(rows)))
-reflected_img_yaxis= cv2.warpPerspective (input_image, M_y, (int(cols), int(rows)))
-                                        
+reflected_img_yaxis= cv2.warpPerspective (input_image, M_y, (int(cols), int(rows)))                                    
 plt.imshow(reflected_img_xaxis)
 plt.show()
-
 plt.imshow(reflected_img_yaxis)
 plt.show()
-
+```
+```python
 v)Image Rotation
 angle=np.radians(10)
 M=np.float32([[np.cos(angle),-(np.sin(angle)),0],[np.sin(angle),np.cos(angle),0],[0,0,1]])
 rotated_img = cv2.warpPerspective(input_image,M,(int(cols),int(rows)))
-
 plt.imshow(rotated_img)
 plt.show()
-
+```
+```python
 vi)Image Cropping
 cropped_img= input_image[100:300,100:300]
-
 plt.imshow(cropped_img)
 plt.show()
 
